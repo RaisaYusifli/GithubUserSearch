@@ -86,19 +86,22 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, isLoading }) => {
           </Flex>
 
           <Box mt={4}>
-            <Text fontSize="sm" color="gray.500" mb={1}>
-              📍 {user?.location}
-            </Text>
+            {user?.location && (
+              <Text fontSize="sm" color="gray.500" mb={1}>
+                📍 {user?.location}
+              </Text>
+            )}
 
             {user.email && (
               <Text fontSize="sm" color="gray.500" mb={1}>
                 ✉️ {user?.email}
               </Text>
             )}
-
-            <Text fontSize="sm" color="gray.500" mb={1}>
-              🏢 {user?.company}
-            </Text>
+            {user?.company && (
+              <Text fontSize="sm" color="gray.500" mb={1}>
+                🏢 {user?.company}
+              </Text>
+            )}
           </Box>
         </VStack>
       </Flex>
