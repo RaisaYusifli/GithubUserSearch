@@ -1,0 +1,7 @@
+build
+node_modules
+types
+mock-server
+mock-server/*
+.eslintrc.js
+jest-config

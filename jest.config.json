@@ -1,0 +1,51 @@
+{
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "./tsconfig.json",
+        "diagnostics": {
+          "ignoreCodes": [151001]
+        }
+      }
+    },
+    "cacheDirectory": ".jest-cache",
+    "coverageDirectory": "build/sonar",
+    "coverageReporters": ["lcov"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "collectCoverage": true,
+    "modulePathIgnorePatterns": [
+      "/mock-server/",
+      "/icons/",
+      "/services/",
+      "/shared/constants/",
+      "/shared/utils/",
+      "/shared/hooks/",
+      "/shared/apiHooks/"
+    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "shared/constants",
+      "/shared/hooks/",
+      "/shared/utils/",
+      "src/hooks.ts"
+    ],
+    "testTimeout": 30000,
+    "roots": ["<rootDir>/src"],
+    "moduleNameMapper": {
+      ".(css|less|scss)$": "<rootDir>/jest-config/style-mock.js",
+      ".(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest-config/file-mock.js"
+    },
+    "modulePaths": ["<rootDir>/src"],
+    "setupFiles": ["jest-localstorage-mock"],
+    "testMatch": ["**/__tests__/**/*.spec.(ts|tsx|js|jsx)"],
+    "testEnvironmentOptions": {
+      "url": "http://localhost"
+    },
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
+    },
+    "transformIgnorePatterns": ["node_modules/(?!(serialize-error)/)"],
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  }
+  
