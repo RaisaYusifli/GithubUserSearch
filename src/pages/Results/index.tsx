@@ -25,7 +25,7 @@ const Results: React.FC = () => {
     if (username) {
       setLastSearchedUser(username);
     }
-  }, [username, setLastSearchedUser]);
+  }, [username]);
 
   const {
     data: userData,
