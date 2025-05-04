@@ -48,8 +48,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, isLoading }) => {
     <Box p={6} bg={cardBgColor} borderRadius="lg" boxShadow="md" borderWidth="1px" borderColor={borderColor} w="100%">
       <Flex direction={{ base: 'column', md: 'row' }} align={{ base: 'center', md: 'start' }}>
         <Image
-          src={user.avatar_url}
-          alt={`${user.login}'s avatar`}
+          src={user?.avatar_url}
+          alt={`${user?.login}'s avatar`}
           borderRadius="full"
           boxSize={{ base: '150px', md: '180px' }}
           mr={{ md: 6 }}
@@ -58,53 +58,47 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, isLoading }) => {
 
         <VStack align={{ base: 'center', md: 'start' }} spacing={3} flex={1}>
           <Heading as="h2" size="xl">
-            {user.name ?? user.login}
+            {user?.name ?? user?.login}
           </Heading>
 
           <Text fontSize="lg" color="gray.500">
-            @{user.login}
+            @{user?.login}
           </Text>
 
           <Link href={user.html_url} isExternal color="blue.500">
             View GitHub Profile
           </Link>
 
-          {user.bio && (
-            <Text fontSize="md" mt={2}>
-              {user.bio}
-            </Text>
-          )}
+          <Text fontSize="md" mt={2}>
+            {user?.bio}
+          </Text>
 
           <Flex wrap="wrap" gap={2} mt={4}>
             <Tag colorScheme="blue" size="md">
-              Repositories: {user.public_repos}
+              Repositories: {user?.public_repos}
             </Tag>
             <Tag colorScheme="green" size="md">
-              Followers: {user.followers}
+              Followers: {user?.followers}
             </Tag>
             <Tag colorScheme="purple" size="md">
-              Following: {user.following}
+              Following: {user?.following}
             </Tag>
           </Flex>
 
           <Box mt={4}>
-            {user.location && (
-              <Text fontSize="sm" color="gray.500" mb={1}>
-                📍 {user.location}
-              </Text>
-            )}
+            <Text fontSize="sm" color="gray.500" mb={1}>
+              📍 {user?.location}
+            </Text>
 
             {user.email && (
               <Text fontSize="sm" color="gray.500" mb={1}>
-                ✉️ {user.email}
+                ✉️ {user?.email}
               </Text>
             )}
 
-            {user.company && (
-              <Text fontSize="sm" color="gray.500" mb={1}>
-                🏢 {user.company}
-              </Text>
-            )}
+            <Text fontSize="sm" color="gray.500" mb={1}>
+              🏢 {user?.company}
+            </Text>
           </Box>
         </VStack>
       </Flex>

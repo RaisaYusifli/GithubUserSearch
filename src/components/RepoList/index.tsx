@@ -45,7 +45,7 @@ const RepoList: React.FC<RepoListProps> = ({ repos, isLoading }) => {
   return (
     <Box w="100%" mt={8}>
       <Heading as="h3" size="lg" mb={6}>
-        Repositories ({repos.length})
+        Repositories ({repos?.length})
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4}>
         {sortedRepos.map((repo) => (
@@ -64,29 +64,25 @@ const RepoList: React.FC<RepoListProps> = ({ repos, isLoading }) => {
             flexDirection="column"
           >
             <Heading as="h4" size="md" mb={2} noOfLines={1}>
-              <Link href={repo.html_url} isExternal>
-                {repo.name}
+              <Link href={repo?.html_url} isExternal>
+                {repo?.name}
               </Link>
             </Heading>
 
-            {repo.description && (
-              <Text fontSize="sm" color="gray.500" mb={3} flex="1" noOfLines={2}>
-                {repo.description}
-              </Text>
-            )}
+            <Text fontSize="sm" color="gray.500" mb={3} flex="1" noOfLines={2}>
+              {repo?.description}
+            </Text>
 
             <Flex mt="auto" justify="space-between" align="center" wrap="wrap">
               <Flex align="center">
                 <Text fontSize="sm" fontWeight="bold">
-                  {repo.stargazers_count.toLocaleString()}
+                  {repo?.stargazers_count.toLocaleString()}
                 </Text>
               </Flex>
 
-              {repo.language && (
-                <Badge colorScheme="blue" variant="subtle" borderRadius="full" px={2}>
-                  {repo.language}
-                </Badge>
-              )}
+              <Badge colorScheme="blue" variant="subtle" borderRadius="full" px={2}>
+                {repo?.language}
+              </Badge>
             </Flex>
           </Box>
         ))}
